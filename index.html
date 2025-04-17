@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BoxPvP</title>
+  <title>BoxPvP | Best Minecraft PvP Server</title>
+  <link rel="icon" href="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" type="image/png">
+  <meta name="description" content="Join the ultimate Minecraft PvP experience on BoxPvP. IP: play.bpvp.us | Discord: dsc.gg/bpvp">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,14 +17,14 @@
     }
 
     body {
-      background: url('https://i.imgur.com/fhKq4ZF.jpg') no-repeat center center fixed;
+      background: url('https://i.imgur.com/ntJb4wU.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
       text-align: center;
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.75);
       width: 100%;
       min-height: 100vh;
       padding: 50px 20px;
@@ -55,6 +58,7 @@
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
       transition: transform 0.3s, background 0.3s;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -85,37 +89,77 @@
       color: #fff;
     }
 
+    .copy-btn {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 5px 10px;
+      background: #f9b233;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .copy-btn:active {
+      background-color: #e0a72a;
+    }
+
     footer {
       margin-top: 60px;
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .button span {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <header>
-      <img class="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="BoxPvP Logo" />
+    <header data-aos="fade-down">
+      <img class="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" alt="BoxPvP Logo" />
       <h1>Welcome to BoxPvP</h1>
-      <div class="ip-box">Server IP: <strong>play.bpvp.us</strong></div>
+      <div class="ip-box">
+        Server IP: <strong id="server-ip">play.bpvp.us</strong>
+        <button class="copy-btn" onclick="copyIP()">Copy</button>
+      </div>
 
-      <div class="buttons">
-        <a href="https://dsc.gg/bpvp" target="_blank" class="button">
+      <div class="buttons" data-aos="fade-up">
+        <a href="https://dsc.gg/bpvp" target="_blank" class="button" style="background-color: #5865F2;">
           <img src="https://i.pinimg.com/736x/50/fb/cd/50fbcda1d83e4a9af2684d2f1af7b8de.jpg" alt="Discord" />
-          <span>Join our Discord</span>
+          <span style="color: white;">Join our Discord</span>
         </a>
 
         <div class="button">
-          <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg?c=2" alt="Minecraft Icon" />
+          <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg" alt="Minecraft Icon" />
           <span>play.bpvp.us</span>
         </div>
       </div>
     </header>
 
-    <footer>
+    <footer data-aos="fade-up">
       &copy; 2025 BoxPvP. All rights reserved.
     </footer>
   </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function copyIP() {
+      const ip = document.getElementById('server-ip').innerText;
+      navigator.clipboard.writeText(ip).then(() => {
+        alert('IP copied to clipboard!');
+      });
+    }
+  </script>
 </body>
 </html>
 
