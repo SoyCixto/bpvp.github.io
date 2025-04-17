@@ -3,86 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPvP - ¡Únete!</title>
-    <link rel="stylesheet" href="style.css">
+    <title>BPvP - Inicio</title> <link rel="stylesheet" href="style.css">
     </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">
-                <h1>TuServidor MC</h1>
+            <div class="logo-container">
+                <img src="logo-bpvp.jpg" alt="Logo BPvP" id="logo">
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Tienda</a></li>
-                    <li><a href="#">Votar</a></li>
-                    <li><a href="#">Foro</a></li>
-                    <li><a href="#">Discord</a></li>
-                </ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="https://bpvp.tebex.io" target="_blank">Tienda</a></li>
+                    <li><a href="#">Foro</a></li> <li><a href="#">Votar</a></li> <li><a href="#">Discord</a></li> </ul>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h2>¡Bienvenido a BPvP!</h2>
-            <p>La mejor experiencia de Minecraft te espera.</p>
-            <div class="server-info">
-                <p>IP: <span class="ip-address">juega.tuservidor.com</span></p>
-                <p>Jugadores Online: <span id="player-count">--</span>/100</p>
-            </div>
-            <a href="#" class="cta-button">¡Únete Ahora!</a>
+            <h1>Bienvenido a BPvP</h1> <p>¡La mejor experiencia BoxPvP te espera! Únete ahora.</p>
+            <p class="ip-copy">IP: play.bpvp.us</p> <a href="https://bpvp.tebex.io" target="_blank" class="btn btn-store">Visita Nuestra Tienda</a>
         </div>
     </section>
 
-    <section class="features">
-        <div class="container">
-            <h2>¿Qué ofrecemos?</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h3>Modalidad Principal</h3>
-                    <p>Descripción de la modalidad (Ej: Survival, Skyblock, BoxPvP).</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Eventos Semanales</h3>
-                    <p>Participa en nuestros eventos y gana premios exclusivos.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Comunidad Activa</h3>
-                    <p>Únete a nuestro Discord y sé parte de la comunidad.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <main class="container content-section">
+        <section id="about">
+            <h2>Sobre Nosotros</h2>
+            <p>Aquí puedes describir tu servidor, sus características únicas, modos de juego, etc. ¡Haz que suene emocionante!</p>
+            <p>Ofrecemos eventos constantes, una economía balanceada y un staff activo para ayudarte.</p>
+        </section>
+
+        <section id="news">
+            <h2>Noticias y Actualizaciones</h2>
+            <article>
+                <h3>¡Nueva Actualización v1.2!</h3>
+                <p>Hemos lanzado nuevas características, incluyendo...</p>
+                <small>Publicado el: 17 de Abril, 2025</small>
+            </article>
+             <article>
+                <h3>¡Evento de PvP este fin de semana!</h3>
+                <p>Prepárense para la batalla...</p>
+                <small>Publicado el: 15 de Abril, 2025</small>
+            </article>
+        </section>
+
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 BPvP. Todos los derechos reservados.</p>
-            </div>
+            <p>&copy; 2025 BPvP. Todos los derechos reservados.</p> <p>No estamos afiliados con Mojang AB.</p>
+            <div class="social-links">
+                </div>
+        </div>
     </footer>
 
-    <script>
-        const ipElement = document.querySelector('.ip-address');
-        if (ipElement) {
-            ipElement.style.cursor = 'pointer';
-            ipElement.title = 'Haz clic para copiar la IP';
-            ipElement.addEventListener('click', () => {
-                navigator.clipboard.writeText(ipElement.textContent)
-                    .then(() => {
-                        alert('IP copiada al portapapeles: ' + ipElement.textContent);
-                    })
-                    .catch(err => {
-                        console.error('Error al copiar la IP: ', err);
-                    });
-            });
-        }
-        // Aquí iría el código JS para obtener jugadores online si tuvieras una API
-        // fetch('API_DEL_SERVIDOR')
-        // .then(response => response.json())
-        // .then(data => {
-        //      document.getElementById('player-count').textContent = data.players.online;
-        // });
-    </script>
 </body>
 </html>
