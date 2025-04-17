@@ -3,32 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoxPvP (Copia)</title>
+    <title>BPvP.us | WebPage</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif; /* Using a common, clean font */
+            font-family: 'Minecraft', sans-serif; /* Intenta usar la fuente de Minecraft */
             margin: 0;
             color: #fff;
             display: flex;
-            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Centra horizontalmente */
             align-items: center;
             min-height: 100vh;
-            background-image: url('https://e1.pxfuel.com/desktop-wallpaper/774/944/desktop-wallpaper-minecraft-night-thumbnail.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            overflow: hidden; /* To contain the animated background */
-            position: relative; /* For positioning the blur overlay */
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            backdrop-filter: blur(80%);
-            z-index: -2; /* Behind the content and animated background */
+            overflow: hidden; /* Para contener el fondo animado */
+            background-color: #101010; /* Un fondo oscuro base */
         }
 
         .animated-background {
@@ -39,66 +25,60 @@
             height: 100%;
             background-image: url('https://img1.picmix.com/output/stamp/normal/0/0/5/7/1087500_bfe7a.gif');
             background-size: cover;
-            background-repeat: repeat; /* Or no-repeat, adjust as needed */
-            opacity: 0.3; /* Adjust opacity for a subtle effect */
-            z-index: -1; /* Behind the main content */
-            animation: moveBackground 20s linear infinite; /* Example animation */
+            background-repeat: repeat;
+            opacity: 0.2; /* Más sutil */
+            z-index: -1;
+            animation: moveBackground 15s linear infinite alternate; /* Animación más suave */
         }
 
         @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
+            0% { transform: translate(-10%, -10%); }
+            100% { transform: translate(10%, 10%); }
         }
 
         .container {
             text-align: center;
-            z-index: 1; /* Ensure content is above backgrounds */
-            padding: 40px; /* Add some padding around the content */
+            z-index: 1;
+            padding: 30px;
         }
 
         .logo-principal {
-            max-width: 400px; /* Adjust size as needed */
-            margin-bottom: 60px;
+            max-width: 350px; /* Ajustado el tamaño */
+            margin-bottom: 40px;
         }
 
         .info-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px; /* Increased gap */
-            margin-bottom: 60px;
+            gap: 30px; /* Espacio entre botones */
         }
 
         .info-box {
-            background-color: rgba(33, 33, 33, 0.8); /* Slightly less transparent */
-            padding: 20px 30px; /* Increased padding */
-            border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .info-logo {
-            width: 50px; /* Adjust size as needed */
-            margin-bottom: 15px;
+            width: 40px;
+            margin-bottom: 10px;
         }
 
         .action-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #5cb85c; /* A slightly different green */
-            color: white;
+            padding: 10px 20px;
+            background-color: #282828; /* Fondo más oscuro */
+            color: #eee;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            border: none;
-            font-size: 18px;
-            transition: background-color 0.3s ease; /* Smooth hover effect */
+            border: 2px solid #555; /* Borde sutil */
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .action-button:hover {
-            background-color: #4cae4c;
+            background-color: #444;
+            color: #fff;
         }
     </style>
 </head>
