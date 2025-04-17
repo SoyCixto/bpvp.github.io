@@ -1,108 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPvP.us | WebPage</title>
-    <style>
-        body {
-            font-family: 'Minecraft', sans-serif; /* Intenta usar la fuente de Minecraft */
-            margin: 0;
-            color: #fff;
-            display: flex;
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden; /* Para contener el fondo animado */
-            background-color: #101010; /* Un fondo oscuro base */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoxPvP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Rubik', sans-serif;
+    }
 
-        .animated-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://img1.picmix.com/output/stamp/normal/0/0/5/7/1087500_bfe7a.gif');
-            background-size: cover;
-            background-repeat: repeat;
-            opacity: 0.2; /* Más sutil */
-            z-index: -1;
-            animation: moveBackground 15s linear infinite alternate; /* Animación más suave */
-        }
+    body {
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-        @keyframes moveBackground {
-            0% { transform: translate(-10%, -10%); }
-            100% { transform: translate(10%, 10%); }
-        }
+    header img.logo {
+      width: 200px;
+      max-width: 100%;
+    }
 
-        .container {
-            text-align: center;
-            z-index: 1;
-            padding: 30px;
-        }
+    h1 {
+      font-size: 3rem;
+      margin: 20px 0 10px;
+      color: #f9b233;
+    }
 
-        .logo-principal {
-            max-width: 350px; /* Ajustado el tamaño */
-            margin-bottom: 40px;
-        }
+    p.subtitle {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
 
-        .info-container {
-            display: flex;
-            gap: 30px; /* Espacio entre botones */
-        }
+    .info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
 
-        .info-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .info-box {
+      background: #222;
+      padding: 20px;
+      border-radius: 15px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s;
+    }
 
-        .info-logo {
-            width: 40px;
-            margin-bottom: 10px;
-        }
+    .info-box:hover {
+      transform: scale(1.05);
+    }
 
-        .action-button {
-            padding: 10px 20px;
-            background-color: #282828; /* Fondo más oscuro */
-            color: #eee;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            border: 2px solid #555; /* Borde sutil */
-            font-size: 16px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    .info-box img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
 
-        .action-button:hover {
-            background-color: #444;
-            color: #fff;
-        }
-    </style>
+    .info-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #f9b233;
+    }
+
+    .info-box p {
+      font-size: 1rem;
+      word-break: break-word;
+    }
+
+    a {
+      color: #f9b233;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <div class="animated-background"></div>
-    <div class="container">
-        <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Logo Principal BoxPvP" class="logo-principal">
+  <header>
+    <img class="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="BoxPvP Logo">
+    <h1>¡Bienvenido a BoxPvP!</h1>
+    <p class="subtitle">La mejor experiencia PvP en Minecraft</p>
+  </header>
 
-        <div class="info-container">
-            <div class="info-box">
-                <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg?c=2" alt="Logo IP Minecraft" class="info-logo">
-                <button class="action-button" onclick="openLink('minecraft://play.bpvp.us')">Jugar Ahora</button>
-            </div>
-            <div class="info-box">
-                <img src="https://i.pinimg.com/736x/50/fb/cd/50fbcda1d83e4a9af2684d2f1af7b8de.jpg" alt="Logo Discord" class="info-logo">
-                <button class="action-button" onclick="openLink('https://dsc.gg/bpvp')">Discord</button>
-            </div>
-        </div>
+  <section class="info">
+    <div class="info-box">
+      <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg?c=2" alt="IP Minecraft">
+      <h2>IP del Servidor</h2>
+      <p><strong>play.bpvp.us</strong></p>
     </div>
 
-    <script>
-        function openLink(url) {
-            window.open(url, '_blank');
-        }
-    </script>
+    <div class="info-box">
+      <img src="https://i.pinimg.com/736x/50/fb/cd/50fbcda1d83e4a9af2684d2f1af7b8de.jpg" alt="Discord">
+      <h2>Únete a Discord</h2>
+      <p><a href="https://dsc.gg/bpvp" target="_blank">dsc.gg/bpvp</a></p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 BoxPvP. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
