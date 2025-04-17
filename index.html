@@ -3,58 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPvP - Inicio</title> <link rel="stylesheet" href="style.css">
+    <title>BPvP - Inicio</title>
+    <link rel="stylesheet" href="style.css">
     </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo-container">
-                <img src="logo-bpvp.jpg" alt="Logo BPvP" id="logo">
-            </div>
+            <a href="index.html" class="logo">
+                <img src="https://media.discordapp.net/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&=&format=webp&quality=lossless" alt="Logo BPvP">
+                <span>BPvP</span>
+            </a>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="https://bpvp.tebex.io" target="_blank">Tienda</a></li>
-                    <li><a href="#">Foro</a></li> <li><a href="#">Votar</a></li> <li><a href="#">Discord</a></li> </ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="foro.html">Foro</a></li>
+                    <li><a href="https://dsc.gg/bpvp" target="_blank">Discord</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Bienvenido a BPvP</h1> <p>¡La mejor experiencia BoxPvP te espera! Únete ahora.</p>
-            <p class="ip-copy">IP: play.bpvp.us</p> <a href="https://bpvp.tebex.io" target="_blank" class="btn btn-store">Visita Nuestra Tienda</a>
-        </div>
-    </section>
-
-    <main class="container content-section">
-        <section id="about">
-            <h2>Sobre Nosotros</h2>
-            <p>Aquí puedes describir tu servidor, sus características únicas, modos de juego, etc. ¡Haz que suene emocionante!</p>
-            <p>Ofrecemos eventos constantes, una economía balanceada y un staff activo para ayudarte.</p>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>La Experiencia Definitiva</h1>
+                <p>Únete a nuestra comunidad y descubre un servidor como ningún otro.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Jugar Ahora <span class="ip-address">(IP: play.bpvp.us)</span></a>
+                    <a href="tienda.html" class="btn btn-secondary">Visitar Tienda</a>
+                </div>
+            </div>
         </section>
 
-        <section id="news">
-            <h2>Noticias y Actualizaciones</h2>
-            <article>
-                <h3>¡Nueva Actualización v1.2!</h3>
-                <p>Hemos lanzado nuevas características, incluyendo...</p>
-                <small>Publicado el: 17 de Abril, 2025</small>
-            </article>
-             <article>
-                <h3>¡Evento de PvP este fin de semana!</h3>
-                <p>Prepárense para la batalla...</p>
-                <small>Publicado el: 15 de Abril, 2025</small>
-            </article>
+        <section class="features container">
+            <h2>Características Principales</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Rendimiento Óptimo</h3>
+                    <p>Disfruta de una experiencia de juego fluida y sin lag.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Comunidad Activa</h3>
+                    <p>Únete a cientos de jugadores y haz nuevos amigos.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Eventos Constantes</h3>
+                    <p>Participa en eventos únicos con premios increíbles.</p>
+                </div>
+                 <div class="feature-item">
+                    <h3>AntiCheat Potente</h3>
+                    <p>Jugamos limpio gracias a nuestro sistema anti-trampas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="store-preview container">
+             <h2>Explora Nuestra Tienda</h2>
+             <div class="store-content">
+                 <div class="store-text">
+                     <p>Apoya al servidor y obtén rangos, objetos y cosméticos exclusivos. ¡Todo lo recaudado se invierte en mejorar el servidor!</p>
+                     <a href="tienda.html" class="btn btn-primary">Ir a la Tienda</a>
+                 </div>
+                 <div class="store-image">
+                     <img src="store-image.jpg" alt="Vista previa de la tienda">
+                 </div>
+             </div>
         </section>
 
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 BPvP. Todos los derechos reservados.</p> <p>No estamos afiliados con Mojang AB.</p>
+            <p>&copy; 2025 BPvP. Todos los derechos reservados.</p>
+            <p>No estamos afiliados con Mojang AB.</p>
             <div class="social-links">
-                </div>
+                <a href="https://dsc.gg/bpvp" target="_blank">Discord</a> | <a href="#">Twitter</a> | <a href="#">YouTube</a>
+            </div>
         </div>
     </footer>
 
