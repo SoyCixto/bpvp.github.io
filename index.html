@@ -6,16 +6,18 @@
     <title>BoxPvP (Copia)</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif; /* Using a common, clean font */
             margin: 0;
             color: #fff;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Stack items vertically */
             align-items: center;
             min-height: 100vh;
             background-image: url('https://e1.pxfuel.com/desktop-wallpaper/774/944/desktop-wallpaper-minecraft-night-thumbnail.jpg');
             background-size: cover;
             background-repeat: no-repeat;
+            overflow: hidden; /* To contain the animated background */
+            position: relative; /* For positioning the blur overlay */
         }
 
         body::before {
@@ -26,97 +28,82 @@
             width: 100%;
             height: 100%;
             backdrop-filter: blur(80%);
-            z-index: -2; /* Detrás del contenido principal */
+            z-index: -2; /* Behind the content and animated background */
+        }
+
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://img1.picmix.com/output/stamp/normal/0/0/5/7/1087500_bfe7a.gif');
+            background-size: cover;
+            background-repeat: repeat; /* Or no-repeat, adjust as needed */
+            opacity: 0.3; /* Adjust opacity for a subtle effect */
+            z-index: -1; /* Behind the main content */
+            animation: moveBackground 20s linear infinite; /* Example animation */
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
         }
 
         .container {
             text-align: center;
-            position: relative; /* Para que el fondo GIF se posicione relativamente a este contenedor */
+            z-index: 1; /* Ensure content is above backgrounds */
+            padding: 40px; /* Add some padding around the content */
         }
 
         .logo-principal {
-            max-width: 300px; /* Ajusta el tamaño según sea necesario */
-            margin-bottom: 40px;
-            z-index: 1; /* Asegura que el logo esté por encima del fondo GIF */
+            max-width: 400px; /* Adjust size as needed */
+            margin-bottom: 60px;
         }
 
         .info-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px; /* Espacio entre los botones */
-            margin-bottom: 40px;
-            z-index: 1; /* Asegura que los botones estén por encima del fondo GIF */
+            gap: 60px; /* Increased gap */
+            margin-bottom: 60px;
         }
 
         .info-box {
-            background-color: rgba(33, 33, 33, 0.7); /* Fondo semitransparente para los botones */
-            padding: 15px 25px;
-            border-radius: 8px;
+            background-color: rgba(33, 33, 33, 0.8); /* Slightly less transparent */
+            padding: 20px 30px; /* Increased padding */
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .info-logo {
-            width: 40px; /* Ajusta el tamaño según sea necesario */
-            margin-bottom: 10px;
+            width: 50px; /* Adjust size as needed */
+            margin-bottom: 15px;
         }
 
         .action-button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50; /* Un color llamativo para los botones */
+            padding: 12px 24px;
+            background-color: #5cb85c; /* A slightly different green */
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
             border: none;
-            font-size: 16px;
+            font-size: 18px;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
         }
 
         .action-button:hover {
-            background-color: #45a049;
-        }
-
-        #minecraft-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Detrás del logo y los botones */
-            opacity: 0.5; /* Ajusta la opacidad del GIF si es necesario */
-        }
-
-        .minecraft-bg-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Asegura que esté detrás del contenido principal */
-        }
-
-        .minecraft-bg-image {
-            position: fixed; /* Para que se quede fijo mientras se hace scroll (si hubiera) */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2; /* Detrás del blur */
+            background-color: #4cae4c;
         }
     </style>
 </head>
 <body>
-    <div class="minecraft-bg-container">
-        <img src="https://img1.picmix.com/output/stamp/normal/0/0/5/7/1087500_bfe7a.gif" alt="Fondo Minecraft GIF" class="minecraft-bg-image">
-    </div>
-
+    <div class="animated-background"></div>
     <div class="container">
         <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Logo Principal BoxPvP" class="logo-principal">
 
