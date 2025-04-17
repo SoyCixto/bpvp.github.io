@@ -8,37 +8,62 @@
         body {
             font-family: sans-serif;
             margin: 0;
-            background-color: #121212; /* Un fondo oscuro como suelen tener los sitios de servidores */
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background-image: url('https://e1.pxfuel.com/desktop-wallpaper/774/944/desktop-wallpaper-minecraft-night-thumbnail.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(80%);
+            z-index: -2; /* Detrás del contenido principal */
         }
 
         .container {
             text-align: center;
+            position: relative; /* Para que el fondo GIF se posicione relativamente a este contenedor */
         }
 
         .logo-principal {
             max-width: 300px; /* Ajusta el tamaño según sea necesario */
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            z-index: 1; /* Asegura que el logo esté por encima del fondo GIF */
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Espacio entre los botones */
+            margin-bottom: 40px;
+            z-index: 1; /* Asegura que los botones estén por encima del fondo GIF */
         }
 
         .info-box {
-            background-color: #212121;
-            padding: 20px;
+            background-color: rgba(33, 33, 33, 0.7); /* Fondo semitransparente para los botones */
+            padding: 15px 25px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .info-logo {
-            width: 50px; /* Ajusta el tamaño según sea necesario */
-            vertical-align: middle;
-            margin-right: 10px;
+            width: 40px; /* Ajusta el tamaño según sea necesario */
+            margin-bottom: 10px;
         }
 
-        .link-button {
+        .action-button {
             display: inline-block;
             padding: 10px 20px;
             background-color: #4CAF50; /* Un color llamativo para los botones */
@@ -46,26 +71,71 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
         }
 
-        .link-button:hover {
+        .action-button:hover {
             background-color: #45a049;
+        }
+
+        #minecraft-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Detrás del logo y los botones */
+            opacity: 0.5; /* Ajusta la opacidad del GIF si es necesario */
+        }
+
+        .minecraft-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Asegura que esté detrás del contenido principal */
+        }
+
+        .minecraft-bg-image {
+            position: fixed; /* Para que se quede fijo mientras se hace scroll (si hubiera) */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2; /* Detrás del blur */
         }
     </style>
 </head>
 <body>
+    <div class="minecraft-bg-container">
+        <img src="https://img1.picmix.com/output/stamp/normal/0/0/5/7/1087500_bfe7a.gif" alt="Fondo Minecraft GIF" class="minecraft-bg-image">
+    </div>
+
     <div class="container">
         <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Logo Principal BoxPvP" class="logo-principal">
 
-        <div class="info-box">
-            <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg?c=2" alt="Logo IP Minecraft" class="info-logo">
-            <span>IP del Servidor:</span> <a href="minecraft://play.bpvp.us" class="link-button">play.bpvp.us</a>
-        </div>
-
-        <div class="info-box">
-            <img src="https://i.pinimg.com/736x/50/fb/cd/50fbcda1d83e4a9af2684d2f1af7b8de.jpg" alt="Logo Discord" class="info-logo">
-            <span>Únete a nuestro Discord:</span> <a href="https://dsc.gg/bpvp" target="_blank" class="link-button">dsc.gg/bpvp</a>
+        <div class="info-container">
+            <div class="info-box">
+                <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg?c=2" alt="Logo IP Minecraft" class="info-logo">
+                <button class="action-button" onclick="openLink('minecraft://play.bpvp.us')">Jugar Ahora</button>
+            </div>
+            <div class="info-box">
+                <img src="https://i.pinimg.com/736x/50/fb/cd/50fbcda1d83e4a9af2684d2f1af7b8de.jpg" alt="Logo Discord" class="info-logo">
+                <button class="action-button" onclick="openLink('https://dsc.gg/bpvp')">Discord</button>
+            </div>
         </div>
     </div>
+
+    <script>
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
