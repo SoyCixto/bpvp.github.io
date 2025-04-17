@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPvP - ¡Únete!</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>TuServidor MC</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Tienda</a></li>
+                    <li><a href="#">Votar</a></li>
+                    <li><a href="#">Foro</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>¡Bienvenido a BPvP!</h2>
+            <p>La mejor experiencia de Minecraft te espera.</p>
+            <div class="server-info">
+                <p>IP: <span class="ip-address">juega.tuservidor.com</span></p>
+                <p>Jugadores Online: <span id="player-count">--</span>/100</p>
+            </div>
+            <a href="#" class="cta-button">¡Únete Ahora!</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>¿Qué ofrecemos?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Modalidad Principal</h3>
+                    <p>Descripción de la modalidad (Ej: Survival, Skyblock, BoxPvP).</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Eventos Semanales</h3>
+                    <p>Participa en nuestros eventos y gana premios exclusivos.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Comunidad Activa</h3>
+                    <p>Únete a nuestro Discord y sé parte de la comunidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BPvP. Todos los derechos reservados.</p>
+            </div>
+    </footer>
+
+    <script>
+        const ipElement = document.querySelector('.ip-address');
+        if (ipElement) {
+            ipElement.style.cursor = 'pointer';
+            ipElement.title = 'Haz clic para copiar la IP';
+            ipElement.addEventListener('click', () => {
+                navigator.clipboard.writeText(ipElement.textContent)
+                    .then(() => {
+                        alert('IP copiada al portapapeles: ' + ipElement.textContent);
+                    })
+                    .catch(err => {
+                        console.error('Error al copiar la IP: ', err);
+                    });
+            });
+        }
+        // Aquí iría el código JS para obtener jugadores online si tuvieras una API
+        // fetch('API_DEL_SERVIDOR')
+        // .then(response => response.json())
+        // .then(data => {
+        //      document.getElementById('player-count').textContent = data.players.online;
+        // });
+    </script>
+</body>
+</html>
