@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BoxPvP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -14,9 +14,16 @@
     }
 
     body {
-      background: linear-gradient(135deg, #111, #1a1a1a);
+      background: url('https://i.imgur.com/fhKq4ZF.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
       text-align: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      min-height: 100vh;
       padding: 50px 20px;
     }
 
@@ -26,91 +33,89 @@
     }
 
     h1 {
-      font-size: 3rem;
-      margin: 20px 0 10px;
+      font-size: 3.5rem;
+      margin: 20px 0;
       color: #f9b233;
     }
 
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-
-    .info {
+    .buttons {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 20px;
+      margin-top: 40px;
       flex-wrap: wrap;
     }
 
-    .info-box {
-      background: #222;
-      padding: 20px;
-      border-radius: 15px;
-      width: 250px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s;
+    .button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #222;
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, background 0.3s;
     }
 
-    .info-box:hover {
+    .button:hover {
       transform: scale(1.05);
+      background-color: #333;
     }
 
-    .info-box img {
-      width: 60px;
-      height: 60px;
+    .button img {
+      width: 40px;
+      height: 40px;
       object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 15px;
+      border-radius: 10px;
     }
 
-    .info-box h2 {
+    .button span {
+      font-size: 1.2rem;
+      color: #f9b233;
+    }
+
+    .ip-box {
+      margin-top: 40px;
       font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #f9b233;
-    }
-
-    .info-box p {
-      font-size: 1rem;
-      word-break: break-word;
-    }
-
-    a {
-      color: #f9b233;
-      text-decoration: none;
+      background: #000000cc;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #f9b233;
+      color: #fff;
     }
 
     footer {
       margin-top: 60px;
       font-size: 0.9rem;
-      color: #666;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img class="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="BoxPvP Logo">
-    <h1>¡Bienvenido a BoxPvP!</h1>
-    <p class="subtitle">La mejor experiencia PvP en Minecraft</p>
-  </header>
+  <div class="overlay">
+    <header>
+      <img class="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="BoxPvP Logo" />
+      <h1>Welcome to BoxPvP</h1>
+      <div class="ip-box">Server IP: <strong>play.bpvp.us</strong></div>
 
-  <section class="info">
-    <div class="info-box">
-      <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg?c=2" alt="IP Minecraft">
-      <h2>IP del Servidor</h2>
-      <p><strong>play.bpvp.us</strong></p>
-    </div>
+      <div class="buttons">
+        <a href="https://dsc.gg/bpvp" target="_blank" class="button">
+          <img src="https://i.pinimg.com/736x/50/fb/cd/50fbcda1d83e4a9af2684d2f1af7b8de.jpg" alt="Discord" />
+          <span>Join our Discord</span>
+        </a>
 
-    <div class="info-box">
-      <img src="https://i.pinimg.com/736x/50/fb/cd/50fbcda1d83e4a9af2684d2f1af7b8de.jpg" alt="Discord">
-      <h2>Únete a Discord</h2>
-      <p><a href="https://dsc.gg/bpvp" target="_blank">dsc.gg/bpvp</a></p>
-    </div>
-  </section>
+        <div class="button">
+          <img src="https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/1280x1280/products/5506/5759/C-15553__64501.1557817374.jpg?c=2" alt="Minecraft Icon" />
+          <span>play.bpvp.us</span>
+        </div>
+      </div>
+    </header>
 
-  <footer>
-    &copy; 2025 BoxPvP. Todos los derechos reservados.
-  </footer>
+    <footer>
+      &copy; 2025 BoxPvP. All rights reserved.
+    </footer>
+  </div>
 </body>
 </html>
+
