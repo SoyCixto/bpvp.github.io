@@ -17,6 +17,17 @@
       overflow: hidden;
     }
 
+    #background-img {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      filter: blur(10px) brightness(50%);
+      z-index: -2;
+    }
+
     #particles-js {
       position: fixed;
       width: 100%;
@@ -32,7 +43,7 @@
     }
 
     .logo-container img {
-      width: 250px;
+      width: 1000px; /* 4x the original 250px */
       height: auto;
       animation: pulse 2s infinite;
     }
@@ -52,6 +63,7 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
+  <img id="background-img" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/03402903-ba22-41b6-ad00-d426c6b825ed/det4jzr-598bfc58-0f08-4f44-b5ff-58eabe77c6f6.png/v1/fill/w_1219,h_656,q_70,strp/minecraft_rain_by_dyazy_det4jzr-pre.jpg" alt="Background" />
   <div id="particles-js"></div>
   <div class="logo-container">
     <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
