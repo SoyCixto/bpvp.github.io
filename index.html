@@ -5,6 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centered Logo</title>
     <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Blurred new background */
+    .background-blurred {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://artfiles.alphacoders.com/910/91022.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(50%);
+      z-index: -2;
+    }
+
+    /* Existing particles background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      max-width: 80vw;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      animation: pulse 2s infinite ease-in-out;
+      object-fit: contain;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
         body {
             margin: 0;
             padding: 0;
@@ -31,5 +92,57 @@
     <div class="logo-container">
         <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
     </div>
+</body>
+</html>
+</div>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 2,
+          random: true
+        },
+        line_linked: {
+          enable: false
+        },
+        move: {
+          enable: true,
+          speed: 0.5,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: false },
+          onclick: { enable: false },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
