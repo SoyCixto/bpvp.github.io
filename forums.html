@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoxPvP Forums</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .forum-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .post {
+      background: #222;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .post h3 {
+      margin: 0 0 10px;
+    }
+    .post .meta {
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    .new-post {
+      margin-bottom: 30px;
+    }
+    textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: #3a3;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #292;
+    }
+  </style>
+</head>
+<body>
+  <div class="forum-container">
+    <h1>BoxPvP Forums</h1>
+    <div class="new-post">
+      <h2>Escribe un mensaje</h2>
+      <textarea id="content" rows="3" placeholder="Tu mensaje..."></textarea>
+      <button onclick="addPost()">Enviar</button>
+    </div>
+    <div id="posts">
+      <!-- Mensajes anteriores -->
+    </div>
+  </div>
+  <script>
+    function getUserName() {
+      let name = localStorage.getItem('bpvpUsername');
+      if (!name) {
+        name = prompt('Pon tu nombre aqui:');
+        if (name) {
+          localStorage.setItem('bpvpUsername', name);
+        }
+      }
+      return name;
+    }
+
+    function addPost() {
+      const content = document.getElementById('content').value.trim();
+      if (!content) return alert('El mensaje no puede estar vacio.');
+
+      const name = getUserName();
+      if (!name) return;
+
+      const post = document.createElement('div');
+      post.classList.add('post');
+
+      const timestamp = new Date().toLocaleString();
+      post.innerHTML = `
+        <h3>${name}</h3>
+        <p class="meta">Publicado el ${timestamp}</p>
+        <p>${content}</p>
+      `;
+
+      document.getElementById('posts').prepend(post);
+      document.getElementById('content').value = '';
+
+      savePost(name, content, timestamp);
+    }
+
+    function savePost(name, content, timestamp) {
+      const post = { name, content, timestamp };
+      let posts = JSON.parse(localStorage.getItem('bpvpPosts')) || [];
+      posts.unshift(post);
+      localStorage.setItem('bpvpPosts', JSON.stringify(posts));
+    }
+
+    function loadPosts() {
+      const posts = JSON.parse(localStorage.getItem('bpvpPosts')) || [];
+      const container = document.getElementById('posts');
+      posts.forEach(post => {
+        const div = document.createElement('div');
+        div.classList.add('post');
+        div.innerHTML = `
+          <h3>${post.name}</h3>
+          <p class="meta">Publicado el ${post.timestamp}</p>
+          <p>${post.content}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>
