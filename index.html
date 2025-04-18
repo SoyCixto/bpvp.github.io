@@ -1,60 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BoxPvP Forums</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoxPvP</title>
+  <link rel="icon" href="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" type="image/png">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      background-color: black;
+      overflow: hidden;
     }
-    .forum-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    h1 {
-      text-align: center;
-    }
-    .post {
-      background: #222;
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-    .post h3 {
-      margin: 0 0 10px;
-    }
-    .post .meta {
-      font-size: 0.9em;
-      color: #aaa;
-    }
-    .new-post {
-      margin-bottom: 30px;
-    }
-    textarea, button {
+
+    #particles-js {
+      position: fixed;
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: none;
+      height: 100%;
+      z-index: -1;
     }
-    button {
-      background-color: #3a3;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #292;
-    }
-    .top-link {
+
+    .logo-container {
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      margin-bottom: 30px;
+      align-items: center;
     }
+
+    .logo-container img {
+      width: 250px;
+      height: auto;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
     .forum-button {
       background-color: #444;
       color: white;
@@ -65,85 +60,69 @@
       cursor: pointer;
       transition: background-color 0.3s;
       text-decoration: none;
+      margin-top: 30px;
     }
+
     .forum-button:hover {
       background-color: #666;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-  <div class="top-link">
+  <div id="particles-js"></div>
+  <div class="logo-container">
+    <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
     <a href="forums.html" class="forum-button">FORUMS</a>
   </div>
-  <div class="forum-container">
-    <h1>BoxPvP Forums</h1>
-    <div class="new-post">
-      <h2>Escribe un mensaje</h2>
-      <textarea id="content" rows="3" placeholder="Tu mensaje..."></textarea>
-      <button onclick="addPost()">Enviar</button>
-    </div>
-    <div id="posts">
-      <!-- Mensajes anteriores -->
-    </div>
-  </div>
   <script>
-    function getUserName() {
-      let name = localStorage.getItem('bpvpUsername');
-      if (!name) {
-        name = prompt('Pon tu nombre aqui:');
-        if (name) {
-          localStorage.setItem('bpvpUsername', name);
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 2,
+          random: true
+        },
+        line_linked: {
+          enable: false
+        },
+        move: {
+          enable: true,
+          speed: 0.5,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out"
         }
-      }
-      return name;
-    }
-
-    function addPost() {
-      const content = document.getElementById('content').value.trim();
-      if (!content) return alert('El mensaje no puede estar vacio.');
-
-      const name = getUserName();
-      if (!name) return;
-
-      const post = document.createElement('div');
-      post.classList.add('post');
-
-      const timestamp = new Date().toLocaleString();
-      post.innerHTML = `
-        <h3>${name}</h3>
-        <p class="meta">Publicado el ${timestamp}</p>
-        <p>${content}</p>
-      `;
-
-      document.getElementById('posts').prepend(post);
-      document.getElementById('content').value = '';
-
-      savePost(name, content, timestamp);
-    }
-
-    function savePost(name, content, timestamp) {
-      const post = { name, content, timestamp };
-      let posts = JSON.parse(localStorage.getItem('bpvpPosts')) || [];
-      posts.unshift(post);
-      localStorage.setItem('bpvpPosts', JSON.stringify(posts));
-    }
-
-    function loadPosts() {
-      const posts = JSON.parse(localStorage.getItem('bpvpPosts')) || [];
-      const container = document.getElementById('posts');
-      posts.forEach(post => {
-        const div = document.createElement('div');
-        div.classList.add('post');
-        div.innerHTML = `
-          <h3>${post.name}</h3>
-          <p class="meta">Publicado el ${post.timestamp}</p>
-          <p>${post.content}</p>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    loadPosts();
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: false },
+          onclick: { enable: false },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
   </script>
 </body>
 </html>
