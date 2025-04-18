@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Logo</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoxPvP</title>
+  <link rel="icon" href="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" type="image/png">
+  <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    body {
+      background-color: black;
       overflow: hidden;
     }
 
-    /* Blurred new background */
-    .background-blurred {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://artfiles.alphacoders.com/910/91022.png');
-      background-size: cover;
-      background-position: center;
-      filter: blur(50%);
-      z-index: -2;
-    }
-
-    /* Existing particles background */
     #particles-js {
       position: fixed;
       width: 100%;
@@ -36,65 +24,38 @@
       z-index: -1;
     }
 
-    .logo-wrapper {
-      position: relative;
+    .logo-container {
       height: 100vh;
-      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .logo {
-      max-width: 80vw;
-      max-height: 80vh;
-      width: auto;
+    .logo-container img {
+      width: 250px;
       height: auto;
-      animation: pulse 2s infinite ease-in-out;
-      object-fit: contain;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0% {
         transform: scale(1);
-        opacity: 1;
       }
       50% {
-        transform: scale(1.05);
-        opacity: 0.9;
+        transform: scale(1.1);
       }
       100% {
         transform: scale(1);
-        opacity: 1;
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Use minimum height to cover the viewport */
-            background-color: #f0f0f0; /* Optional: Add a background color */
-        }
-
-        .logo-container {
-            text-align: center; /* Center image if it's an inline element */
-        }
-
-        .logo-container img {
-            max-width: 100%; /* Ensure the image is responsive */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Make the image a block element for better centering control */
-            margin: 0 auto; /* Auto margins for horizontal centering within a block */
-        }
-    </style>
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-    <div class="logo-container">
-        <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
-    </div>
-</body>
-</html>
-</div>
+  <div id="particles-js"></div>
+  <div class="logo-container">
+    <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
+  </div>
   <script>
     particlesJS("particles-js", {
       particles: {
