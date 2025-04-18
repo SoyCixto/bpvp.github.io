@@ -40,12 +40,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      flex-direction: column;
     }
 
     .logo-container img {
-      width: 1000px; /* 4x the original 250px */
+      width: 1000px;
       height: auto;
       animation: pulse 2s infinite;
+      cursor: pointer;
     }
 
     @keyframes pulse {
@@ -59,6 +62,37 @@
         transform: scale(1);
       }
     }
+
+    .copy-message {
+      position: absolute;
+      bottom: 10%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: sans-serif;
+      font-size: 1.2em;
+      opacity: 0;
+      animation: fadeOut 2s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      25% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
@@ -66,7 +100,9 @@
   <img id="background-img" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/03402903-ba22-41b6-ad00-d426c6b825ed/det4jzr-598bfc58-0f08-4f44-b5ff-58eabe77c6f6.png/v1/fill/w_1219,h_656,q_70,strp/minecraft_rain_by_dyazy_det4jzr-pre.jpg" alt="Background" />
   <div id="particles-js"></div>
   <div class="logo-container">
-    <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
+    <img id="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
+    <div id="copyMessage" class="copy-message" style="display: none;">IP copiada!</div>
+    <audio id="clickSound" src="https://cdn.voicy.network/voicies/audio_qja-Pu9HO0icITQitLpbIQ.mp3"></audio>
   </div>
   <script>
     particlesJS("particles-js", {
@@ -115,6 +151,24 @@
         }
       },
       retina_detect: true
+    });
+
+    const logo = document.getElementById("logo");
+    const message = document.getElementById("copyMessage");
+    const sound = document.getElementById("clickSound");
+
+    logo.addEventListener("click", () => {
+      navigator.clipboard.writeText("play.bpvp.us").then(() => {
+        sound.currentTime = 0;
+        sound.play();
+        message.style.display = "block";
+        message.classList.remove("fadeOut");
+        void message.offsetWidth;
+        message.classList.add("fadeOut");
+        setTimeout(() => {
+          message.style.display = "none";
+        }, 2000);
+      });
     });
   </script>
 </body>
