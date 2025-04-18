@@ -14,10 +14,22 @@
 
     html, body {
       height: 100%;
-      background-color: black;
       overflow: hidden;
     }
 
+    /* Blurred new background */
+    .background-blurred {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://artfiles.alphacoders.com/910/91022.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(50%);
+      z-index: -2;
+    }
+
+    /* Existing particles background */
     #particles-js {
       position: fixed;
       width: 100%;
@@ -60,6 +72,7 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
+  <div class="background-blurred"></div>
   <div id="particles-js"></div>
   <div class="logo-wrapper">
     <img class="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" alt="BoxPvP Logo" />
