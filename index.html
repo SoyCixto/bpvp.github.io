@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BPvP | Web</title>
+  <title>BoxPvP</title>
   <link rel="icon" href="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" type="image/png">
   <style>
     * {
@@ -15,6 +15,8 @@
     body {
       background-color: black;
       overflow: hidden;
+      color: white;
+      font-family: sans-serif;
     }
 
     #particles-js {
@@ -29,12 +31,53 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      flex-direction: row;
     }
 
-    .logo-container img {
-      width: 500px;
+    .logo-container img.main-logo {
+      width: 250px;
       height: auto;
       animation: pulse 2s infinite;
+    }
+
+    .side-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 10px;
+    }
+
+    .side-box img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .discord-text {
+      color: orangered;
+      font-weight: bold;
+    }
+
+    .copy-text {
+      color: aqua;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .left-box {
+      position: absolute;
+      left: 10%;
+    }
+
+    .right-box {
+      position: absolute;
+      right: 10%;
+    }
+
+    .clickable {
+      text-align: center;
+      cursor: pointer;
     }
 
     @keyframes pulse {
@@ -53,10 +96,28 @@
 </head>
 <body>
   <div id="particles-js"></div>
+
   <div class="logo-container">
-    <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
+    <div class="side-box left-box">
+      <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/8/85/Creeper_JE2_BE2.png" alt="Creeper Face">
+      <div class="clickable copy-text" onclick="copyIP()">Click to copy</div>
+    </div>
+
+    <img class="main-logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" alt="Your Logo">
+
+    <div class="side-box right-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Discord Logo">
+      <div class="discord-text">Join the Discord</div>
+      <div class="clickable" onclick="window.open('https://discord.gg/yourinvite', '_blank')">Click to join</div>
+    </div>
   </div>
+
   <script>
+    function copyIP() {
+      navigator.clipboard.writeText('play.bpvp.us');
+      alert('IP copied to clipboard!');
+    }
+
     particlesJS("particles-js", {
       particles: {
         number: {
