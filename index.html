@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BoxPvP</title>
   <link rel="icon" href="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" type="image/png">
   <style>
@@ -13,17 +13,9 @@
     }
 
     body {
-      background-color: #ffffff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #1f1f1f;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+      background-color: black;
+      overflow: hidden;
     }
-
 
     #particles-js {
       position: fixed;
@@ -32,84 +24,38 @@
       z-index: -1;
     }
 
-    .logo {
-      width: 300px;
-      height: auto;
-      margin-bottom: 40px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
+    .logo-container {
+      height: 100vh;
+      display: flex;
       justify-content: center;
-      padding: 14px 24px;
-      margin: 10px;
-      font-size: 18px;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
+      align-items: center;
     }
 
-    .discord {
-      background-color: #5865F2;
-      color: white;
+    .logo-container img {
+      width: 250px;
+      height: auto;
+      animation: pulse 2s infinite;
     }
 
-    .discord:hover {
-      background-color: #4752c4;
-    }
-
-    .copy-ip {
-      background-color: #00cccc;
-      color: white;
-    }
-
-    .copy-ip:hover {
-      background-color: #00aaaa;
-    }
-
-    .button img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 14px;
-      color: #999;
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-
-  <img class="logo" src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png" alt="BoxPvP Logo">
-
-  <a class="button discord" href="https://discord.gg/yourinvite" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Discord Icon">
-    Join our Discord
-  </a>
-
-  <button class="button copy-ip" onclick="copyIP()">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Minecraft_Creeper_Face.svg/24px-Minecraft_Creeper_Face.svg.png" alt="Minecraft Icon">
-    Click to copy IP
-  </button>
-
-  <div class="footer">play.bpvp.us</div>
-
-  <script>
-    function copyIP() {
-      const ip = 'play.bpvp.us';
-      navigator.clipboard.writeText(ip).then(() => {
-        alert(`Copied IP: ${ip}`);
-      }).catch(err => {
-        console.error('Copy failed', err);
-      });
-    }
+  <div id="particles-js"></div>
+  <div class="logo-container">
+    <img src="https://cdn.discordapp.com/attachments/1362173561879527607/1362248010951692360/unnamed_2-Picsart-BackgroundRemover.png?ex=68025c93&is=68010b13&hm=8ad0b5d8973ed5e1a6c883ed0eff2efe688597208b3b65b59811c0c46e47e44a&" alt="Your Logo">
+  </div>
   <script>
     particlesJS("particles-js", {
       particles: {
